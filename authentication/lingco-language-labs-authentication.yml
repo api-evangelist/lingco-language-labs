@@ -1,0 +1,104 @@
+generated: '2026-07-19'
+method: searched
+source: https://help.lingco.io/en/collections/2522345-for-it-administrators
+docs: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
+notes: >-
+  Lingco publishes no OpenAPI and no general-purpose developer API, so this
+  profile is not derived from securitySchemes. It captures the authentication
+  contracts Lingco actually documents for IT administrators: an LTI 1.3 tool
+  (OIDC third-party-initiated login), an OAuth2 authorization-code callback for
+  the Canvas API client, and OneRoster v1.1 client-credential rostering. There
+  is no self-service developer credential: Canvas and LTI registrations are
+  completed by sending the client/deployment identifiers to Lingco engineering.
+summary:
+  types:
+  - openIdConnect
+  - oauth2
+  self_service: false
+  registration: manual, out-of-band with Lingco engineering
+schemes:
+- name: lti-1p3-oidc
+  type: openIdConnect
+  standard: IMS/1EdTech LTI 1.3 (OIDC third-party-initiated login)
+  role: Lingco is the tool; the LMS is the platform
+  initiation_url: https://class.lingco.io/api/lti1p3/login
+  target_link_uri: https://class.lingco.io/api/lti1p3/launch
+  redirect_uri: https://class.lingco.io/api/lti1p3/launch
+  jwks_uri: https://class.lingco.io/api/lti1p3/keys
+  jwks_file: authentication/lingco-language-labs-lti1p3-jwks.json
+  key_algorithm: RS256
+  domain: class.lingco.io
+  services_consumed:
+  - id: ags
+    name: Assignment and Grade Services
+    note: line items, scores and results; consumed on every launch
+  - id: nrps
+    name: Names and Role Provisioning Services
+    note: context membership; consumed on every launch
+  registration:
+    method: manual
+    note: administrator sends the Client ID and Deployment ID to Lingco to complete
+      setup
+  platforms_documented:
+  - name: Canvas
+    docs: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
+  - name: Schoology
+    docs: https://help.lingco.io/en/articles/11642193-lti-1-3-integration-in-schoology
+- name: canvas-api-oauth2
+  type: oauth2
+  flow: authorizationCode
+  direction: outbound
+  note: >-
+    Lingco is the API client here, not the provider. The institution creates a
+    Canvas developer key named "Lingco Classroom" and Lingco calls the Canvas
+    REST API with it to sync grades and rosters beyond standard LTI.
+  redirect_uri: https://class.lingco.io/auth/canvas/callback
+  docs: https://help.lingco.io/en/articles/4379311-setting-up-canvas-api-integration
+  scope_surface:
+    note: scopes are Canvas API scopes granted to Lingco, listed in the article when
+      the institution enforces scope restrictions
+    endpoint_groups:
+    - assignment_groups
+    - assignments
+    - courses
+    - external_tools
+    - modules
+    - sections
+    - submissions
+    - tabs
+    - users_enrollments
+  registration:
+    method: manual
+    note: administrator sends the App ID, Developer Key and Canvas URL domain to Lingco
+- name: oneroster-client-credentials
+  type: oauth2
+  standard: IMS/1EdTech OneRoster v1.1
+  direction: outbound
+  note: >-
+    Lingco consumes the SIS OneRoster endpoint with a client key/secret issued
+    by the district's SIS. Lingco does not host a OneRoster endpoint.
+  credentials:
+  - Client Key + Client Secret (PowerSchool, ClassLink)
+  - Client ID + Client Secret (Infinite Campus)
+  docs: https://help.lingco.io/en/articles/11831372-oneroster-integration
+- name: sso-google
+  type: openIdConnect
+  note: Lingco SSO with Google and Google Classroom
+  docs: https://help.lingco.io/en/articles/8733059-configuring-lingco-sso-with-google-and-google-classroom
+- name: sso-clever
+  type: oauth2
+  note: Lingco SSO in Clever
+  docs: https://help.lingco.io/en/articles/15024126-lingco-sso-in-clever
+- name: sso-schoology
+  type: oauth2
+  note: Lingco SSO in Schoology
+  docs: https://help.lingco.io/en/articles/11201127-configuring-lingco-sso-in-schoology
+- name: sso-canvas-lti-account-level
+  type: openIdConnect
+  note: LTI single sign on with Canvas, account-level installation
+  docs: https://help.lingco.io/en/articles/8519048-lti-single-sign-on-with-canvas-account-level-installation
+not_found:
+- api keys / personal access tokens for a Lingco-hosted API
+- a public OAuth authorization server or /.well-known/openid-configuration on any
+  Lingco host
+- documented scope strings issued by Lingco
