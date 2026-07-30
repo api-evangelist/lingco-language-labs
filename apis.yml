@@ -1,21 +1,71 @@
 aid: lingco-language-labs
 name: Lingco Language Labs
-description: Lingco Language Labs is a company surfaced as a portfolio company of techstars and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: 'Lingco Language Labs, Inc. is a Delaware-incorporated education technology
+  company operating Lingco Classroom, a cloud language-learning platform used by schools
+  and universities. Lingco pairs a library of pre-built, customizable world-language
+  content with an instructor platform for building courses, assigning activities and
+  tracking learner outcomes. Lingco publishes no general-purpose public developer API;
+  its integration surface is standards-based education interoperability: an IMS/1EdTech
+  LTI 1.3 tool (OIDC third-party-initiated login, JWKS, Assignment and Grade Services
+  and Names and Role Provisioning Services) hosted at class.lingco.io, OneRoster v1.1
+  rostering via REST or SFTP CSV, a Canvas API client integration, and SSO with Google
+  Classroom, Schoology and Clever.'
 url: https://raw.githubusercontent.com/api-evangelist/lingco-language-labs/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.lingco.io/og-image.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - techstars
-x-tier: stub
-x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Education
+- EdTech
+- Language Learning
+- Learning Management
+- LTI
+- OneRoster
+- Rostering
+- Single Sign On
+- Interoperability
+apis:
+- aid: lingco-language-labs-lti-1-3-tool
+  name: Lingco Classroom LTI 1.3 Tool
+  description: 'Lingco Classroom is registered in an LMS as an IMS/1EdTech LTI 1.3
+    tool. The platform performs an OIDC third-party-initiated login against Lingco''s
+    initiation endpoint, launches into the target link URI, and Lingco consumes
+    Assignment and Grade Services (AGS) and Names and Role Provisioning Services
+    (NRPS) on every launch to synchronize rosters and grades. Lingco publishes an
+    RS256 JWKS for platform-side token verification.'
+  humanURL: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
+  baseURL: https://class.lingco.io/api/lti1p3
+  tags:
+  - LTI
+  - LTI 1.3
+  - Single Sign On
+  - Grade Passback
+  - Rostering
+  properties:
+  - type: Authentication
+    url: authentication/lingco-language-labs-authentication.yml
+  - type: JWKS
+    url: https://class.lingco.io/api/lti1p3/keys
+  - type: Documentation
+    url: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -24,3 +74,42 @@ maintainers:
 common:
 - type: Website
   url: https://lingco.io/
+- type: DeveloperPortal
+  url: https://help.lingco.io/en/collections/2522345-for-it-administrators
+- type: Documentation
+  url: https://help.lingco.io/en/collections/2522345-for-it-administrators
+- type: Support
+  url: https://help.lingco.io/
+- type: TermsOfService
+  url: https://lingco.io/terms_of_service
+- type: PrivacyPolicy
+  url: https://lingco.io/privacy_policy
+- type: AcceptableUsePolicy
+  url: https://lingco.io/acceptable_use_policy
+- type: StatusPage
+  url: https://status.lingco.io/
+- type: Compliance
+  url: https://lingco.io/terms_of_service
+- type: Authentication
+  url: authentication/lingco-language-labs-authentication.yml
+- type: Conformance
+  url: conformance/lingco-language-labs-conformance.yml
+- type: Lifecycle
+  url: lifecycle/lingco-language-labs-lifecycle.yml
+- type: Conventions
+  url: conventions/lingco-language-labs-conventions.yml
+- type: WellKnown
+  url: well-known/lingco-language-labs-well-known.yml
+- type: ContentSignal
+  url: well-known/lingco-language-labs-robots.txt
+- type: DomainSecurity
+  url: security/lingco-language-labs-domain-security.yml
+- type: LLMsTxt
+  url: llms/lingco-language-labs-llms.txt
+- type: Integrations
+  url: integrations/_index.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
