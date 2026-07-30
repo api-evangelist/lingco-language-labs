@@ -1,0 +1,83 @@
+generated: '2026-07-19'
+method: searched
+source: https://help.lingco.io/en/collections/2522345-for-it-administrators
+notes: >-
+  Lingco's documented integration surface, harvested from the IT administrator
+  help collection. No Arazzo workflows were authored: Lingco publishes no
+  OpenAPI, so there are no verifiable operationIds on the Lingco side to bind a
+  workflow to. Every entry is listing-only and marked pending-partner-spec.
+integrations:
+- slug: canvas-lti-1-3
+  label: LTI 1.3 Integration in Canvas
+  partner: canvas
+  category: lms
+  use_case: Launch Lingco from Canvas over LTI 1.3 with AGS grade passback and NRPS
+    roster sync
+  docs: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
+  arazzo: null
+  status: pending-partner-spec
+- slug: canvas-sso-account-level
+  label: LTI Single Sign On with Canvas - Account-Level Installation
+  partner: canvas
+  category: sso
+  use_case: Install Lingco once at the Canvas account level for district-wide SSO
+  docs: https://help.lingco.io/en/articles/8519048-lti-single-sign-on-with-canvas-account-level-installation
+  arazzo: null
+  status: pending-partner-spec
+- slug: canvas-api
+  label: Setting Up Canvas API Integration
+  partner: canvas
+  category: lms
+  use_case: Issue a Canvas developer key to Lingco so it can sync grades and rosters
+    beyond standard LTI
+  docs: https://help.lingco.io/en/articles/4379311-setting-up-canvas-api-integration
+  arazzo: null
+  status: pending-partner-spec
+- slug: schoology-lti-1-3
+  label: LTI 1.3 Integration in Schoology
+  partner: schoology
+  category: lms
+  use_case: Launch Lingco from Schoology over LTI 1.3
+  docs: https://help.lingco.io/en/articles/11642193-lti-1-3-integration-in-schoology
+  arazzo: null
+  status: pending-partner-spec
+- slug: schoology-sso
+  label: Configuring Lingco SSO in Schoology
+  partner: schoology
+  category: sso
+  use_case: Single sign on from Schoology into Lingco
+  docs: https://help.lingco.io/en/articles/11201127-configuring-lingco-sso-in-schoology
+  arazzo: null
+  status: pending-partner-spec
+- slug: google-classroom-sso
+  label: Configuring Lingco SSO with Google and Google Classroom
+  partner: google-classroom
+  category: sso
+  use_case: Google and Google Classroom single sign on
+  docs: https://help.lingco.io/en/articles/8733059-configuring-lingco-sso-with-google-and-google-classroom
+  arazzo: null
+  status: pending-partner-spec
+- slug: clever-sso
+  label: Lingco SSO in Clever
+  partner: clever
+  category: sso
+  use_case: Single sign on from the Clever portal
+  docs: https://help.lingco.io/en/articles/15024126-lingco-sso-in-clever
+  arazzo: null
+  status: pending-partner-spec
+- slug: oneroster
+  label: OneRoster Integration
+  partner: oneroster
+  category: rostering
+  use_case: Sync orgs, users, courses, classes, enrollments and academic sessions
+    from the SIS over OneRoster v1.1
+  docs: https://help.lingco.io/en/articles/11831372-oneroster-integration
+  arazzo: null
+  status: pending-partner-spec
+  sis_endpoints:
+  - vendor: powerschool
+    pattern: https://[your-powerschool-server]/ws/v1p1/ims/oneroster/v1p1
+  - vendor: infinite-campus
+    pattern: https://[district].infinitecampus.org/campus/api/oneroster/v1p1
+  - vendor: classlink
+    pattern: https://api.classlink.com/oneroster/v1p1/[district-id]

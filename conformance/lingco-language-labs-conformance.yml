@@ -1,0 +1,94 @@
+generated: '2026-07-19'
+method: searched
+source: https://help.lingco.io/en/collections/2522345-for-it-administrators
+notes: >-
+  Lingco's integration surface is standards-based education interoperability
+  rather than a bespoke REST API, so conformance is asserted against the
+  1EdTech/IMS Global family plus the identity standards those depend on.
+  Evidence is the administrator documentation and live endpoint probes.
+standards:
+- id: lti-1.3
+  name: IMS/1EdTech Learning Tools Interoperability 1.3
+  conforms: true
+  role: tool
+  evidence: dedicated LTI 1.3 integration articles for Canvas and Schoology; live
+    OIDC initiation, launch and JWKS endpoints under https://class.lingco.io/api/lti1p3
+  docs: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
+- id: lti-ags
+  name: LTI Assignment and Grade Services
+  conforms: true
+  evidence: documentation requires AGS "on every launch" for line items, scores and
+    results
+- id: lti-nrps
+  name: LTI Names and Role Provisioning Services
+  conforms: true
+  evidence: documentation requires NRPS "on every launch" for context membership
+- id: lti-advantage
+  name: LTI Advantage
+  conforms: true
+  evidence: derived - AGS + NRPS on top of LTI 1.3 core is the LTI Advantage service
+    set
+- id: oneroster-1.1
+  name: IMS/1EdTech OneRoster v1.1
+  conforms: true
+  modes:
+  - rest
+  - csv
+  evidence: 'OneRoster Integration article: REST endpoints with OneRoster authentication,
+    or full CSV bundle over SFTP (manifest, orgs, users, courses, enrollments, academicSessions,
+    classes)'
+  limitations:
+  - full CSV only; CSV deltas are not supported
+  docs: https://help.lingco.io/en/articles/11831372-oneroster-integration
+- id: oidc
+  name: OpenID Connect
+  conforms: true
+  evidence: LTI 1.3 third-party-initiated login flow; Google/Google Classroom SSO
+- id: oauth2
+  name: OAuth 2.0
+  conforms: true
+  role: client
+  evidence: Canvas developer-key authorization-code flow with redirect URI https://class.lingco.io/auth/canvas/callback;
+    OneRoster client key/secret
+- id: rfc7517-jwks
+  name: JSON Web Key Set
+  conforms: true
+  evidence: live RS256 JWKS served at https://class.lingco.io/api/lti1p3/keys
+- id: ferpa
+  name: Family Educational Rights and Privacy Act
+  conforms: true
+  evidence: >-
+    Terms of Service commit Lingco to be designated a "school official" with
+    "legitimate educational interests" in Student Information under FERPA, to
+    bind subcontractors to the same obligations, and to return or certify
+    destruction of Student Information.
+  docs: https://lingco.io/terms_of_service
+- id: content-signal
+  name: Cloudflare Content-Signal AI usage declaration
+  conforms: true
+  evidence: 'class.lingco.io/robots.txt declares search=yes, ai-train=no, use=reference
+    and disallows nine named AI crawlers'
+- id: hipaa
+  name: Health Insurance Portability and Accountability Act
+  conforms: false
+  evidence: >-
+    Explicitly disclaimed, not claimed. The Terms of Service define HIPAA-regulated
+    data as "Excluded Data" that customers warrant they will not upload, and state
+    Lingco has no liability for protections under the Excluded Data Laws.
+- id: pci-dss
+  name: PCI DSS
+  conforms: false
+  evidence: explicitly disclaimed in the same Excluded Data clause as HIPAA
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: no public API surface or specification to evaluate
+- id: dnssec
+  conforms: false
+  evidence: security/lingco-language-labs-domain-security.yml - dnssec false on lingco.io
+not_evaluated:
+- id: soc2
+  reason: no published trust center, audit report or certification page found
+- id: iso27001
+  reason: no published certification found
+- id: gdpr
+  reason: privacy policy names no GDPR-specific commitments

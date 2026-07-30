@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.lingco.io/
+versioning:
+  scheme: uri-path
+  note: >-
+    Versioning is inherited from the interoperability standards Lingco
+    implements rather than published as a Lingco API version policy. The LTI
+    tool endpoints are namespaced /api/lti1p3 (LTI 1.3) and OneRoster is
+    consumed at the v1p1 path segment. Lingco publishes no version or
+    deprecation policy of its own.
+  observed:
+  - lti1p3
+  - oneroster v1p1
+status_page:
+  url: https://status.lingco.io/
+  title: Lingco Status - Service Status Dashboard
+  verified: '2026-07-19'
+  http_status: 200
+  note: first-party dashboard on status.lingco.io; components render client-side so
+    the component list was not captured
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: no deprecation or sunset policy published
+sla:
+  url: null
+  uptime_target: null
+  note: no public SLA or uptime target found; status page advertises "real-time status
+    and uptime monitoring" without a committed target
+support:
+  help_center: https://help.lingco.io/
+  email: support@lingco.io
+  policy_contact: policies@lingco.io
+changelog:
+  url: null
+  note: no dated public changelog or release-notes page found
+deprecated_operations: []
+not_found:
+- roadmap
+- changelog / release notes
+- published SLA
+- deprecation policy
