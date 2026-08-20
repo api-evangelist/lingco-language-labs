@@ -40,6 +40,17 @@ tags:
 - LTI
 - OneRoster
 - Rostering
+- Single Sign-On
+- Interoperability
+tags_raw:
+- Company
+- Education
+- EdTech
+- Language Learning
+- Learning Management
+- LTI
+- OneRoster
+- Rostering
 - Single Sign On
 - Interoperability
 apis:
@@ -54,6 +65,12 @@ apis:
   humanURL: https://help.lingco.io/en/articles/10768792-lti-1-3-integration-in-canvas
   baseURL: https://class.lingco.io/api/lti1p3
   tags:
+  - LTI
+  - LTI 1.3
+  - Single Sign-On
+  - Grade Passback
+  - Rostering
+  tags_raw:
   - LTI
   - LTI 1.3
   - Single Sign On
