@@ -11,6 +11,17 @@ description: 'Lingco Language Labs, Inc. is a Delaware-incorporated education te
   rostering via REST or SFTP CSV, a Canvas API client integration, and SSO with Google
   Classroom, Schoology and Clever.'
 url: https://raw.githubusercontent.com/api-evangelist/lingco-language-labs/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
