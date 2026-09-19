@@ -49,7 +49,7 @@ tags:
 - LTI
 - OneRoster
 - Rostering
-- Single Sign-On
+- SSO
 - Interoperability
 tags_raw:
 - Company
@@ -75,7 +75,7 @@ apis:
   tags:
   - LTI
   - LTI 1.3
-  - Single Sign-On
+  - SSO
   - Grade Passback
   - Rostering
   tags_raw:
