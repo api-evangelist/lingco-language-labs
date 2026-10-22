@@ -34,10 +34,11 @@ edges:
       attributes:
       - Certified Product
       - TrustEd Apps Seal
+      - Vetted
       lapsed: false
       url: https://site.imsglobal.org/certifications/lingco-language-labs-inc/lingco-classroom/v1
     detected_by: sweep-edtech.py
-    detected: '2026-10-14'
+    detected: '2026-10-19'
 generated: '2026-10-14'
 method: searched
 checked:
